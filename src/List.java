@@ -1,17 +1,19 @@
 import java.util.Scanner;
 
-
+/**
+ * Arnav Dadarya
+ * 9/23/2021
+ */
 public class List {
     private node root = new node(0);
     private node current = root;
     protected int lenght = 0;
-
+    
     public  void add(Object obj){
         current.next = new node(obj);
         current = current.next;
         lenght++;
     }
-
 
     public Object get(int i){
         if(i > lenght){
@@ -37,7 +39,6 @@ public class List {
             try {
                 throw new Exception("Error invalid Index " + Index);
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
@@ -49,6 +50,12 @@ public class List {
         current.next.next = nextnode;
         // System.out.println(current.next.next.next.Value);
         lenght++;
+    }
+
+    public void add(Object[] objarray) {
+        for (int i = 0; i < objarray.length; i++) {
+            add(objarray[i]);
+        }
     }
 
     private node getNode(int i){
@@ -84,45 +91,18 @@ public class List {
 
 
     }
-
     @Override
     public String toString() {
         String x = "{";
         for (int i = 0; i < lenght; i++) {
-            x+=get(i);
+            x+=get(i).toString();
             if(i != lenght - 1)
                 x+=",";
         }
         return x+"}";
 
     }
-
-    public static void main (String[] args) {
-        List x = new List();
-        x.add(10);
-        x.add(12);
-        x.add(13);
-        x.add(14);
-        x.add(15);
-        x.remove(0);
-        System.out.println(x);
-        x.add(2, 100);
-        System.out.println(x);
-        System.out.println(x);
-        System.err.println(x);
-        boolean run = false;
-        while(run){
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Enter a Integer: ");
-            Integer w = sc.nextInt();
-            x.add(w);
-            System.out.println(x);
-        }
-    
-
-    }
 }
-
 class node{
     node next = null;
     Object Value = null;
@@ -132,3 +112,4 @@ class node{
     }
 
 }
+

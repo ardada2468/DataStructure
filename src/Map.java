@@ -1,11 +1,11 @@
 public class Map {
 
-    mapnode root = new mapnode(0, 1);
+    mapnode root = new mapnode("", "");
     mapnode current = root;
     int lenght = 0;
     public void add(Object key, Object value){
         current.next = new mapnode(key, value);
-        System.out.println(current.next);
+        // System.out.println(current.next);
         lenght++;
         current = current.next;
     }
@@ -23,11 +23,11 @@ public class Map {
 
     @Override
     public String toString(){
-        mapnode local = root;
+        mapnode local = root.next;
         String str = "{ ";
-     
+        int counter = 0;
         while(local != null){
-
+           
             if(local.next == null){
                 str+= local.toString() + "}";
                 return str;
@@ -36,16 +36,9 @@ public class Map {
                 str+= local.toString() + ", ";
                 local = local.next;
             }
-            
+            counter++;
         }
         return str + "}";
-    }
-    public static void main(String [] args) {
-        Map m = new Map();
-        m.add("Hello", "Hello".length());
-        m.add("JSON", "JSON".length());
-        m.add("Deft", "Deft".length());
-        System.out.println(m.toString());
     }
     
 }

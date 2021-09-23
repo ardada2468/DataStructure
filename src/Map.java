@@ -1,17 +1,51 @@
 public class Map {
 
-    mapnode root = new mapnode(null, null);
+    mapnode root = new mapnode(0, 1);
     mapnode current = root;
     int lenght = 0;
     public void add(Object key, Object value){
         current.next = new mapnode(key, value);
+        System.out.println(current.next);
         lenght++;
+        current = current.next;
     }
-    public void get(Object key){
+
+    public Object get(Object key){
         mapnode local = root;
         for (int i = 0; i < lenght; i++) {
-          
+            if(local.key.equals(key)){
+                return local.value;
+            }
+            local = local.next;
         }
+        return null;
+    }
+
+    @Override
+    public String toString(){
+        mapnode local = root;
+        String str = "{ ";
+     
+        while(local != null){
+
+            if(local.next == null){
+                str+= local.toString() + "}";
+                return str;
+            }else{
+            
+                str+= local.toString() + ", ";
+                local = local.next;
+            }
+            
+        }
+        return str + "}";
+    }
+    public static void main(String [] args) {
+        Map m = new Map();
+        m.add("Hello", "Hello".length());
+        m.add("JSON", "JSON".length());
+        m.add("Deft", "Deft".length());
+        System.out.println(m.toString());
     }
     
 }
@@ -24,5 +58,10 @@ class mapnode{
     public mapnode(Object Key, Object Value){
         key = Key;
         value = Value;
+    }
+
+    @Override
+    public String toString() {
+        return "" + key.toString() + " : " + value.toString();
     }
 }

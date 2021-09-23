@@ -1,3 +1,7 @@
+/**
+ * Arnav Dadarya
+ * 9/23/2021
+ */
 public class Map {
 
     mapnode root = new mapnode("", "");

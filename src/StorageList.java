@@ -3,9 +3,14 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
-public class StorageList extends List {
+/**
+ * Arnav Dadarya
+ * 9/23/2021
+ */
+public class StorageList extends List implements Saveable {
     String Path = null;
+
+    @Override
     public void save(String Path){
         this.Path = Path;
         try {
@@ -29,6 +34,7 @@ public class StorageList extends List {
     }
 
     //Saves all data as String
+    @Override
     public void ReadData(String Path){
         Scanner sc;
         try {
@@ -42,6 +48,8 @@ public class StorageList extends List {
         }
      
     }
+
+  
 
     
 }

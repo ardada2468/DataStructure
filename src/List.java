@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
+
 
 public class List {
     private node root = new node(0);
@@ -14,6 +14,13 @@ public class List {
 
 
     public Object get(int i){
+        if(i > lenght){
+            try {
+                throw new Exception("Invalid Index");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         i = i +1;
         node localroot = root;
         for (int j = 0; j < i; j++) {
@@ -44,7 +51,7 @@ public class List {
         lenght++;
     }
 
-    private node getnNode(int i){
+    private node getNode(int i){
         i = i +1;
         node localroot = root;
         for (int j = 0; j < i; j++) {
@@ -103,7 +110,7 @@ public class List {
         System.out.println(x);
         System.out.println(x);
         System.err.println(x);
-        boolean run = true;
+        boolean run = false;
         while(run){
             Scanner sc = new Scanner(System.in);
             System.out.print("Enter a Integer: ");

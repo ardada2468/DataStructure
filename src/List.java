@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 /**
  * Arnav Dadarya
  * 9/23/2021
@@ -9,7 +10,7 @@ public class List {
     private node current = root;
     protected int lenght = 0;
     
-    public  void add(Object obj){
+    public void add(Object obj){
         current.next = new node(obj);
         current = current.next;
         lenght++;
@@ -32,6 +33,7 @@ public class List {
         }
         return localroot.Value;
     }
+
 
     public void add(int Index, int value){
         node current = root;

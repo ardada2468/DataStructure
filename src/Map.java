@@ -2,14 +2,14 @@
  * Arnav Dadarya
  * 9/23/2021
  */
+
 public class Map {
 
-    mapnode root = new mapnode("", "");
+    mapnode root = new mapnode("","");
     mapnode current = root;
     int lenght = 0;
     public void add(Object key, Object value){
         current.next = new mapnode(key, value);
-        // System.out.println(current.next);
         lenght++;
         current = current.next;
     }
@@ -44,6 +44,9 @@ public class Map {
         }
         return str + "}";
     }
+
+    
+
     
 }
 

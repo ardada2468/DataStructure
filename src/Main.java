@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Arnav Dadarya
  * 9/23/2021
@@ -15,6 +17,20 @@ public class Main {
         System.out.println(list);
         StorageList SL = new StorageList();
         SL.add(new String[]{"New York","Trumbull","Los Angeles"}); 
+        boolean run = true;
+        while(run){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter a value: ");
+            String str = sc.next();
+            if(str.equals("!x")){
+                run = false;
+                break;
+
+            }
+            SL.add(str);
+            System.out.println(SL);
+
+        }
         SL.ReadData("List.txt");
         SL.save("List.txt");
         SL.remove(0);

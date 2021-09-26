@@ -21,7 +21,7 @@ public class Main {
         while(run){
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter a value: ");
-            String str = sc.next();
+            String str = sc.nextLine();
             if(str.equals("!x")){
                 run = false;
                 break;
